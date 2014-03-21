@@ -10,7 +10,7 @@
   },
   "main": "./lib/index",
   "scripts": {
-    "prepublish": "rm -rf lib && coffee --bare --output lib/ src/",
+    "prepublish": "coffee -o lib/ src/",
     "postinstall": "node setup.js postinstall",
     "test": "node_modules/.bin/mocha"
   },
