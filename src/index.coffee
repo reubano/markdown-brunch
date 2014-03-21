@@ -5,12 +5,11 @@ yfm = require 'yaml-front-matter'
 
 module.exports = class MarkdownCompiler
   brunchPlugin: yes
-  type: 'template'
+  type: 'javascript'
   extension: 'md'
   pattern: /(\.(markdown|mdown|mkdn|md|mkd|mdwn|mdtxt|mdtext|text))$/
 
   constructor: (config) ->
-    languages = Object.keys(hljs.LANGUAGES)
     options = Object.create(config.marked ? null)
 
     # If highlight isn't defined in config then use default Highlight.js
@@ -18,7 +17,7 @@ module.exports = class MarkdownCompiler
       options.highlight = (code, lang) ->
         if lang is 'auto'
           hljs.highlightAuto(code).value
-        else if languages.indexOf(lang) isnt -1
+        else if hljs.getLanguage(lang)
           hljs.highlight(lang, code).value
 
     # Set marked options
