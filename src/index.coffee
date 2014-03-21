@@ -1,7 +1,7 @@
-marked = require('marked')
-hljs = require('highlight.js')
-umd = require('umd-wrapper')
-yfm = require('yaml-front-matter')
+marked = require 'marked'
+hljs = require 'highlight.js'
+umd = require 'umd-wrapper'
+yfm = require 'yaml-front-matter'
 
 module.exports = class MarkdownCompiler
   brunchPlugin: yes
@@ -26,10 +26,10 @@ module.exports = class MarkdownCompiler
 
   compile: (data, path, callback) ->
     try
-      obj = yfm.loadFront(data, 'md');
-      obj.html = marked(results.md);
-      result = umd(JSON.stringify(obj))
+      obj = yfm.loadFront data, 'md'
+      obj.html = marked results.md
+      result = umd JSON.stringify obj
     catch err
       error = err
     finally
-      callback(error, result)
+      callback error, result
