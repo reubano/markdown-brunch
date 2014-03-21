@@ -2,11 +2,11 @@
   "name": "markdown-brunch",
   "version": "1.7.1",
   "description": "Compiles Markdown files to HTML in brunch.",
-  "author": "Juan Placencia",
-  "homepage": "https://github.com/jupl/markdown-brunch",
+  "author": "Reuben Cummings",
+  "homepage": "https://github.com/reubano/markdown-brunch",
   "repository": {
     "type": "git",
-    "url": "git@github.com:jupl/markdown-brunch.git"
+    "url": "git@github.com:reubano/markdown-brunch.git"
   },
   "main": "./lib/index",
   "scripts": {
