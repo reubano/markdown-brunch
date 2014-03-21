@@ -19,6 +19,7 @@
   "dependencies": {
     "marked": "~0.2.9",
     "highlight.js": "~7.4.0",
+    "yaml-front-matter": "~3.0.1",
     "umd-wrapper": "~0.1.0"
   },
   "devDependencies": {
