@@ -26,7 +26,7 @@ module.exports = class MarkdownCompiler
   compile: (data, path, callback) ->
     try
       obj = yfm.loadFront data, 'md'
-      obj.html = marked results.md
+      obj.html = marked obj.md
       result = umd JSON.stringify obj
     catch err
       error = err
