@@ -1,5 +1,6 @@
-fs = require 'fs'
-{markdown} = require 'markdown'
+marked = require('marked')
+hljs = require('highlight.js')
+umd = require('umd-wrapper')
 
 module.exports = class MarkdownCompiler
   brunchPlugin: yes
@@ -7,12 +8,25 @@ module.exports = class MarkdownCompiler
   extension: 'md'
   pattern: /(\.(markdown|mdown|mkdn|md|mkd|mdwn|mdtxt|mdtext|text))$/
 
-  constructor: (@config) ->
+  constructor: (config) ->
+    languages = Object.keys(hljs.LANGUAGES)
+    options = Object.create(config.marked ? null)
+
+    # If highlight isn't defined in config then use default Highlight.js
+    unless 'highlight' of options
+      options.highlight = (code, lang) ->
+        if lang is 'auto'
+          hljs.highlightAuto(code).value
+        else if languages.indexOf(lang) isnt -1
+          hljs.highlight(lang, code).value
+
+    # Set marked options
+    marked.setOptions(options)
 
   compile: (data, path, callback) ->
     try
-      result = "module.exports = function() { return \"#{markdown.toHTML data}\"; };";
+      result = umd(JSON.stringify(marked(data)))
     catch err
       error = err
     finally
-      callback error, result
+      callback(error, result)
