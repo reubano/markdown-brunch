@@ -1,7 +1,6 @@
 ## markdown-brunch 1.7.1
 
-[<img src="https://david-dm.org/jupl/markdown-brunch.png"/>](https://david-dm.org/jupl/markdown-brunch)
-[<img src="https://david-dm.org/jupl/markdown-brunch/dev-status.png"/>](https://david-dm.org/jupl/markdown-brunch#info=devDependencies)
+[<img src="https://david-dm.org/reubano/markdown-brunch.png"/>](https://david-dm.org/reubano/markdown-brunch)
 
 Compiles Markdown files to HTML in [brunch](http://brunch.io) using [Marked](https://github.com/chjj/marked). [Highlight.js](http://softwaremaniacs.org/soft/highlight/en/) support is included for syntax highlighting. Plugin checks for files that have one of the following extensions:
 

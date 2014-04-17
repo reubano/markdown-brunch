@@ -1,25 +1,28 @@
 {
   "name": "markdown-brunch",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "Compiles Markdown files to HTML in brunch.",
-  "author": "Juan Placencia",
-  "homepage": "https://github.com/jupl/markdown-brunch",
+  "author": "Reuben Cummings",
+  "homepage": "https://github.com/reubano/markdown-brunch",
   "repository": {
     "type": "git",
-    "url": "git@github.com:jupl/markdown-brunch.git"
+    "url": "git@github.com:reubano/markdown-brunch.git"
   },
   "main": "./lib/index",
   "scripts": {
-    "prepublish": "rm -rf lib && coffee --bare --output lib/ src/",
+    "prepublish": "coffee -o lib/ src/",
+    "postinstall": "node setup.js postinstall",
     "test": "node_modules/.bin/mocha"
   },
   "engines": {
-    "node": "~0.6.10 || 0.8 || 0.9"
+    "node": "~0.9 || 0.10"
   },
   "dependencies": {
-    "marked": "~0.2.9",
-    "highlight.js": "~7.4.0",
-    "umd-wrapper": "~0.1.0"
+    "marked": "~0.3.2",
+    "highlight.js": "~8.0.0",
+    "yaml-front-matter": "~3.0.1",
+    "umd-wrapper": "~0.1.0",
+    "coffee-script": "1.3.3"
   },
   "devDependencies": {
     "coffee-script": "~1.6.3",
